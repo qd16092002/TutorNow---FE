@@ -1,0 +1,16 @@
+{
+  "guide": {
+    "start": {
+      "description1": "Chúng tôi chào đón các nhà khoa học dữ liệu, các nhà đầu tư tài chính, các nhà giao dịch số liệu định lượng... hay bất kỳ ai có khả năng đánh bại thị trường!",
+      "description2": "Đọc tài liệu của chúng tôi để có thêm thông tin chi tiết",
+      "head1": "Hãy tham gia giải đấu của chúng tôi",
+      "head2": "Xem tài liệu"
+    }
+  },
+  "header": {
+    "nav": {
+      "sign-in": "Đăng nhập",
+      "sign-up": "Đăng ký"
+    }
+  }
+}

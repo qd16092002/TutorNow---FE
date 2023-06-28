@@ -1,0 +1,146 @@
+@import '../../../../../../components/GlobalStyles/_mixins'
+
+.round-wrapper,.round-wrapper-mobile
+  // padding: 0 86px
+  width: 100%
+  max-width: 1365px
+  margin: 0 auto
+  z-index: 888
+
+  .heading
+    margin: 0 auto
+
+    h3
+      @include h3-text
+      justify-content: center
+
+    .color
+      background: linear-gradient(96.06deg, #526AEA 4.1%, #B0AEFF 146.32%)
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+      background-clip: text
+      text-fill-color: transparent
+    p
+      font-family: 'Montserrat'
+      font-style: normal
+      font-weight: 400
+      font-size: 1.6rem
+      line-height: 24px
+      text-align: center
+      color: #9DA7BA
+
+  .main
+    display: flex
+    background: linear-gradient(216.81deg, rgba(57, 50, 100, 0.56) 0%, rgba(43, 60, 63, 0.4) 100%)
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    box-shadow: 0px 24px 16px -16px rgba(0, 0, 0, 0.05)
+    backdrop-filter: blur(20px)
+    border-radius: 48px
+
+    .connect-wrapper
+      position: relative
+      height: 130px
+
+      .connect
+        position: absolute
+
+    .item
+      display: flex
+
+      .image
+        display: flex
+        justify-content: center
+        align-items: center
+
+        img
+          object-fit: contain
+
+      .number
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 8px
+        background: #141416
+        border-radius: 41.3308px
+        color: #FCFCFD
+        font-weight: 600
+        font-size: 1.2rem
+        line-height: 20px
+
+      .text
+        font-weight: 600
+        line-height: 24px
+        text-align: center
+        color: #FCFCFD
+
+.round-wrapper
+  margin-top: 210px
+
+  .heading
+
+    p
+      margin-top: 24px
+
+  .main
+    align-items: center
+    justify-content: space-between
+    margin-top: 40px
+    padding: 0px 260px
+    gap: 10px
+    height: 440px
+
+    .item
+      flex-direction: column
+      justify-content: center
+      align-items: center
+
+      .number
+        margin-top: 54px
+        width: 36px
+        height: 36px
+
+      .text
+        margin-top: 14px
+        font-size: 1.8rem
+
+.round-wrapper-mobile
+  margin-top: 40px
+  padding: 0px 16px
+
+  .heading
+
+    h3
+      font-size: 1.8rem!important
+
+    p
+      font-size: 1.4rem!important
+      margin-top: 12px
+
+  .main
+    flex-direction: column
+    margin-top: 32px
+    padding: 24px 0
+
+    .item
+      flex-direction: column
+      align-items: center
+
+      .number
+        margin-top: 24px
+        width: 24px
+        height: 24px
+
+      .image
+
+        img
+          height: 55px
+
+      .text
+        margin-top: 8px
+        font-size: 1.4rem,
+
+    .connect-wrapper-mobile
+      width: 100%
+      display: flex
+      justify-content: center
+      margin: 10px 0

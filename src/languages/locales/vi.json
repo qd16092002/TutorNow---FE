@@ -1,0 +1,113 @@
+{
+  "header": {
+    "nav": {
+      "contacts": "Liên hệ",
+      "data": "Dữ liệu",
+      "documents": "Tài liệu",
+      "model": "Mô hình"
+    },
+    "mobile": {
+      "button": "Đăng ký"
+    },
+    "auth": {
+      "sign-up": "Đăng ký",
+      "sign-in": "Đăng nhập"
+    }
+  },
+  "content1": {
+    "header1": "Predict & Win ",
+    "header2": "the Financial Market",
+    "header3": "ĐẤU TRƯỜNG DỮ LIỆU TỐI THƯỢNG"
+  },
+  "content2": {
+    "header1": "Hướng dẫn tham gia ",
+    "header2": "giải đấu",
+    "header3": "Các bước sau đây sẽ giúp bạn nhanh chóng làm quen với cuộc thi"
+  },
+  "content3": {
+    "header1": "Làm thế nào để trở thành",
+    "header2": "Một nhà vô địch?"
+  },
+  "introduce": {
+    "description": {
+      "top": "Khai phá dữ liệu tài chính, Xây dựng mô hình để dự đoán thị trường",
+      "bottom": "Thi đấu và giành giải thưởng."
+    }
+  },
+  "button": {
+    "gettingstarted": "Bắt đầu",
+    "subscribebutton": "Đăng ký"
+  },
+  "finished": {
+    "finished": "Hoàn thành"
+  },
+  "round": {
+    "description": {
+      "top": "Có ba vòng thi (1) Public test, (2) Private test và (3) Market test.",
+      "bottom": "Người đạt được số điểm tích lũy cao nhất sẽ trở thành nhà vô địch!"
+    }
+  },
+  "guide": {
+    "start": {
+      "head1": "Hãy tham gia giải đấu của chúng tôi",
+      "description1": "Chúng tôi chào đón các nhà khoa học dữ liệu, các nhà đầu tư tài chính, các nhà giao dịch số liệu định lượng... hay bất kỳ ai có khả năng đánh bại thị trường!",
+      "head2": "Xem tài liệu",
+      "description2": "Đọc tài liệu của chúng tôi để có thêm thông tin chi tiết"
+    },
+    "content1": {
+      "header": "Tương tác với dữ liệu",
+      "list": {
+        "title1": "Thu thập",
+        "detail1": "Chúng tôi đã chuẩn bị cho bạn một nguồn dữ liệu tài chính đa dạng.",
+        "title2": "Khai phá",
+        "detail2": "Sử dụng các công cụ sắc bén để khai thác dữ liệu: kiểm tra độ chính xác, trực quan hóa, thống kê, vv. Thu thập những câu chuyện được kể từ dữ liệu để xây dựng các giả thuyết ban đầu của bạn.",
+        "title3": "Làm sạch và xử lý",
+        "detail3": "Hãy nhớ rằng dữ liệu được cung cấp có thể chứa nhiễu và giá trị trống. Có thể bạn sẽ cần làm sạch chúng để đảm bảo mô hình của bạn hoạt động tốt nhất.",
+        "title4": "Biến đổi",
+        "detail4": "Trước khi bắt đầu, hãy chuẩn bị dữ liệu bằng cách định dạng lại, lọc hoặc biến đổi dữ liệu thành các cấu trúc phù hợp: hãy để dữ liệu của bạn được sẵn sàng để đưa vào mô hình!"
+      }
+    },
+    "content2": {
+      "header": "Mô hình hóa",
+      "list": {
+        "title1": "Trích chọn đặc trưng",
+        "detail1": "Dù bạn áp dụng machine learning hay deep learning, chúng tôi khuyến khích bạn nên sử dụng một số kỹ thuật trích chọn đặc trưng để lựa chọn nhóm các đặc trưng tốt nhất cho dữ liệu.",
+        "title2": "Xây dựng mô hình",
+        "detail2": "Hãy sáng tạo để xây dựng mô hình của riêng bạn.",
+        "title3": "Chuẩn bị nộp kết quả",
+        "detail3": "Bạn có thể tạo nhiều mô hình và xác định nhiều chiến lược đào tạo để tối ưu hóa hiệu suất của chúng.",
+        "title4": "Đánh giá hiệu năng mô hình",
+        "detail4": "Bạn nên tham khảo các loại điểm đánh giá hiệu suất mô hình của chúng tôi để đánh giá mô hình của bạn. Điều này sẽ giúp bạn hiểu cách hoạt động của mô hình dựa trên các phép đánh giá cụ thể và giúp bạn phát triển một phương pháp đánh giá riêng phù hợp với nhu cầu huấn luyện. Cần lưu ý rằng phương pháp tiếp cận này không chỉ hữu ích trong quá trình huấn luyện mô hình mà còn trong việc so sánh các mô hình. Bằng cách đánh giá các mô hình trên cùng một phương pháp, bạn có thể so sánh hiệu suất của chúng và chọn mô hình phù hợp nhất."
+      }
+    },
+    "content3": {
+      "header": "Thi đấu",
+      "list": {
+        "title1": "Công khai",
+        "detail1": "Sử dụng một bộ thử nghiệm công khai để đánh giá hiệu suất của mô hình và sử dụng phản hồi của đánh giá này để cải thiện các bước trước đó.",
+        "title2": "Riêng tư",
+        "detail2": "Để tránh trường hợp mô hình của bạn học 'quá khớp', chúng tôi sẽ chuẩn bị một bộ thử nghiệm ẩn giúp bạn đánh giá mô hình một cách khách quan nhất!",
+        "title3": "Kiểm tra thị trường",
+        "detail3": "Cuối cùng, bạn sẽ phải dự đoán hành vi thị trường thực tế trong tương lai, đây là bước đánh giá cuối cùng của cuộc thi."
+      }
+    }
+  },
+  "footer": {
+    "description": "Một giải đấu tiên phong về dự đoán giá tiền điện tử với mục đích kết hợp sức mạnh của các nhà khoa học dữ liệu để xây dựng một siêu mô hình có thể chiến thắng thị trường",
+    "link": {
+      "head": "Liên kết hữu ích",
+      "documents": "Tài liệu",
+      "overview": "Tổng quan",
+      "contact-us": "Liên hệ với chúng tôi"
+    },
+    "participate": {
+      "head": "Giải đấu",
+      "rounds": "Vòng",
+      "roadmap": "Lộ trình"
+    },
+    "subscribe": {
+      "head": "Đăng ký",
+      "desc": "Tham gia cuộc thi ngay hôm nay!"
+    }
+  }
+}

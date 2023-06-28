@@ -1,0 +1,113 @@
+{
+  "header": {
+    "nav": {
+      "contacts": "Contacts",
+      "data": "Data",
+      "documents": "Documents",
+      "model": "Model"
+    },
+    "mobile": {
+      "button": "Subscribe"
+    },
+    "auth": {
+      "sign-up": "Sign up",
+      "sign-in": "Sign in"
+    }
+  },
+  "content1": {
+    "header1": "Predict & Win ",
+    "header2": "the Financial Market",
+    "header3": "NESTQUANT TOURNAMENT"
+  },
+  "content2": {
+    "header1": "Guideline for ",
+    "header2": "NestQuant  Tournament",
+    "header3": "The following steps will help you be mindful with the tournament"
+  },
+  "content3": {
+    "header1": "How to be",
+    "header2": "A Champion?"
+  },
+  "introduce": {
+    "description": {
+      "top": "Dive in our rich financial data sources, Build a model",
+      "bottom": "to predict the future, Compete and Win the prize"
+    }
+  },
+  "button": {
+    "gettingstarted": "Getting Started!",
+    "subscribebutton": "Subscribe"
+  },
+  "finished": {
+    "finished": "Finished!"
+  },
+  "round": {
+    "description": {
+      "top": "There are three rounds (1) Public test, (2) Private test, and (3) Market test.",
+      "bottom": "The highest accumulated score will be our champion!"
+    }
+  },
+  "guide": {
+    "start": {
+      "head1": "Join our tournament",
+      "description1": "We welcome data scientists, financial investors, quantitative traders… or anyone who can beat the market!",
+      "head2": "View documentation",
+      "description2": "Look at our documentation for in depth information"
+    },
+    "content1": {
+      "header": "Playing with data",
+      "list": {
+        "title1": "Get the data",
+        "detail1": "We’ve prepared for your a bunch of data from various sources.",
+        "title2": "Explore",
+        "detail2": "Mine the data with your sharp tools: sanity check, visualization, statistics, etc. Gain insights from data to start your hypothesis.",
+        "title3": "Clean and Preprocess",
+        "detail3": "Keep in mind that the provided data can contain noise and have null values. You may want to clean them to make them work properly in your models.",
+        "title4": "Data transformation",
+        "detail4": "Reformat the data, filter a potion of data, or transform to structure: you should have the data ready!"
+      }
+    },
+    "content2": {
+      "header": "Modeling",
+      "list": {
+        "title1": "Feature engineering",
+        "detail1": "Despite using machine learning or deep learning, some feature engineering to select the best group of features that characterizes data are recommended.",
+        "title2": "Build models",
+        "detail2": "Be creative and create your own perfect models.",
+        "title3": "Prepare for submission",
+        "detail3": "Moreover, you can create multiple models and define multiple training strategies to optimize model performance. Once you have evaluated and compared the performance of different models, you can select the one that best fits your needs and proceed to the next.",
+        "title4": "Assess your models",
+        "detail4": "It is recommended to use our scoring-based performance assessment method to evaluate your machine learning model. This will enable you to understand how your model performs based on specific metrics and to develop an appropriate evaluation method that suits your needs."
+      }
+    },
+    "content3": {
+      "header": "Competing",
+      "list": {
+        "title1": "Public test",
+        "detail1": "Use a set of public tests to evaluate model performance, and use the feedback of this assessment to improve previous steps.",
+        "title2": "Private test",
+        "detail2": "In order to avoid your model being overfit, we will prepare a set of private tests to evaluate for you. You can rely on our feedback to improve the model again!",
+        "title3": "Market test",
+        "detail3": "Finally, you will have to forecast the actual market in the future, this is the final evaluation step of the contest."
+      }
+    }
+  },
+  "footer": {
+    "description": "NestQuant Tournament for Cryptocurrency Price Prediction aims to combine the strengths of all data scientists to build a super model that can win the market",
+    "link": {
+      "head": "Useful links",
+      "documents": "Documents",
+      "overview": "Overview",
+      "contact-us": "Contact us"
+    },
+    "participate": {
+      "head": "Tournaments",
+      "rounds": "Rounds",
+      "roadmap": "Roadmap"
+    },
+    "subscribe": {
+      "head": "Subscribe",
+      "desc": "Join NestQuant Tournament today!"
+    }
+  }
+}

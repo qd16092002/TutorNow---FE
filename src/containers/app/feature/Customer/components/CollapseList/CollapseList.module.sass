@@ -1,0 +1,133 @@
+.collapse-wrapper,.collapse-wrapper-mobile
+  width: 100%
+
+  .header
+    font-weight: 700
+    line-height: 150%
+    color: #FFFFFF
+
+    .after
+      content: ""
+      display: block
+      height: 4px
+      border-radius: 4px
+      bottom: 0
+      left: 0
+
+  .list
+    width: 100%
+
+    .item
+      width: 100%
+
+      .__header
+        width: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+        cursor: pointer
+        // background: red
+
+        .icon
+          display: flex
+          justify-content: center
+          align-items: center
+          border-radius: 100px
+
+        p
+          font-weight: 600
+          line-height: 180%
+          color: #FFFFFF
+
+        .chevron
+          flex: 1
+          display: flex
+          justify-content: flex-end
+
+          div
+            transition: all 0.15s ease
+            cursor: pointer
+
+      .__detail
+        padding: 12px
+        gap: 10px
+        width: calc(100% - 44px)
+        margin-left: auto
+        margin-top: 12px
+        margin-bottom: 24px
+        border-radius: 12px
+        transition: visibility 0s, opacity 0.5s linear
+        background: red
+        transform-origin: top
+        // height: 28vh
+        p
+          font-weight: 400
+          line-height: 2.4rem
+          color: #EBEBEB
+          pointer-events: none
+          z-index: -1
+          // height: 25vh
+          // overflow: scroll
+          // &::-webkit-scrollbar
+          //   width: 0px
+          //   height: 0px
+.collapse-wrapper
+
+  .header
+    font-size: 3.2rem
+
+    .after
+      width: 48px
+
+  .list
+    margin-top: 40px
+
+    .item
+
+      .__header
+        gap: 12px
+
+        .icon
+          width: 32px
+          height: 32px
+        p
+          font-size: 1.8rem
+
+        .chevron
+
+          div
+
+      .__detail
+
+        p
+          font-size: 1.6rem
+
+.collapse-wrapper-mobile
+
+  .header
+    font-size: 1.6rem
+
+    .after
+      width: 48px
+  .list
+    margin-top: 32px
+
+    .item
+
+      .__header
+        gap: 12px
+
+        .icon
+          width: 32px
+          height: 32px
+        p
+          font-size: 1.4rem
+
+        .chevron
+
+          div
+
+      .__detail
+
+        p
+          font-size: 1.2rem

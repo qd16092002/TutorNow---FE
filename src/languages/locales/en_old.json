@@ -1,0 +1,16 @@
+{
+  "guide": {
+    "start": {
+      "description1": "We welcome data scientists, financial investors, quantitative traders… or anyone who can beat the market!",
+      "description2": "Look at our documentation for in depth information",
+      "head1": "Join our tournament",
+      "head2": "View documentation"
+    }
+  },
+  "header": {
+    "nav": {
+      "sign-in": "Sign in",
+      "sign-up": "Sign up"
+    }
+  }
+}
