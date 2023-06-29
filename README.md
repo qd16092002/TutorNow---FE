@@ -1,5 +1,7 @@
-TutorNow - FE
-
-npm i
-
-npm run dev
+## Developer
+-   Trần Quang Đạo
+## Install
+- npm i
+- add .evn.development
+- add .evnproduction
+- npm run dev
