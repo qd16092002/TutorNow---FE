@@ -1,5 +1,5 @@
 {
-  "name": "tutor-now",
+  "name": "react-webpack-babel",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\"",
     "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\""
   },
-  "author": "qd16092002",
+  "author": "luxofons",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.21.3",

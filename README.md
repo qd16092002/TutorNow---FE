@@ -4,5 +4,5 @@
 ## Install
 - npm i
 - add .evn.development
-- add .evnproduction
+- add .evn.production
 - npm run dev

@@ -1,14 +1,62 @@
 .content
-    margin-top:  40px   
-    .avatar
-    width: 125.60625457763672px
-    height: 126px
-    top: 1129px
-    left: 1337px
-    background-color: rgba(88, 112, 86, 1)
-    color: #FFFF
+    margin-top: 40px
     display: flex
-    justify-content: center
+    .avatar
+        border: 2px solid #8D8D8D
+        height: 130px
+        width: 130px
+    .title
+        height: 130px
+        margin-left: 40px
+        display: flex
+        flex-direction: column
+        justify-content: end
+        .name
+            font-family: Play
+            font-size: 36px
+            font-weight: 700
+            line-height: 26px
+            letter-spacing: -0.18000000715255737px
+            text-align: left
+            color: #3F523D
+        .email
+            margin-top: 10px
+            font-family: Play
+            font-size: 14px
+            font-weight: 400
+            line-height: 26px
+            letter-spacing: -0.18000000715255737px
+            text-align: left
+            color: #3F523D
+.header
+    justify-content: space-between
     align-items: center
-    font-size: 5rem
-    font-weight: 600
+    margin-top: 40px
+    margin-bottom: 40px
+    &__process
+        display: flex
+        align-items: center
+        gap: 20px
+
+    &__title
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 5px 0px
+        color: #1B1E25
+        font-weight: 700
+        font-size: 16px
+        line-height: 26px
+        border-radius: 100px !important
+
+        &:hover
+            cursor: pointer
+
+        &.active
+            color: #587056
+            text-decoration: underline
+
+        &.inactive
+            color: #A5A5A5
+            &:hover
+                color: #587056
