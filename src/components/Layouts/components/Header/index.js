@@ -116,7 +116,7 @@ function Header() {
                       }}
                     />
                     <Menu.Item>
-                      <Link to='/profile'>
+                      <Link to='/infomation'>
                         <div className={cx('header__icon')}>
                           <IconProfile />
                           <div

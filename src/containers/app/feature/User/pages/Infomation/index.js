@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import classNames from 'classnames/bind'
-import styles from './Overview.module.sass'
+import styles from './Infomation.module.sass'
 import { useSelector } from 'react-redux'
 
 const cx = classNames.bind(styles)
 
-function Overview() {
+function Infomation() {
   const userInfo = useSelector((state) => state.auth.user)
 
   return (
@@ -23,4 +23,4 @@ function Overview() {
   )
 }
 
-export default Overview
+export default Infomation

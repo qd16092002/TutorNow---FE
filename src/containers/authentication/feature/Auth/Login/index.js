@@ -214,18 +214,20 @@ function Login() {
                   <div>or</div>
                   <div className={cx('vecto')}></div>
                 </div>
-                <div className={cx('loginwithfacebook')}>
-                  <div>
-                    <FacebookLogin />
-                  </div>{' '}
-                  <div
-                    style={{
-                      marginTop: '3px'
-                    }}
-                  >
-                    Sign in with a Facebook Account
+                <Link to='https://www.facebook.com/quangdao1609/' target='_blank'>
+                  <div className={cx('loginwithfacebook')}>
+                    <div>
+                      <FacebookLogin />
+                    </div>{' '}
+                    <div
+                      style={{
+                        marginTop: '3px'
+                      }}
+                    >
+                      Sign in with a Facebook Account
+                    </div>
                   </div>
-                </div>
+                </Link>
                 <div className={cx('navigate-guide')}>
                   Don&apos;t have account?{' '}
                   <Link to='/signup' className={cx('signup')}>

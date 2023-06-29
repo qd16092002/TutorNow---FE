@@ -1,14 +1,14 @@
 import ProfileLayout from '@src/components/Layouts/ProfileLayout'
-import Overview from './pages/Overview'
-import Teams from './pages/Teams'
-import SettingsPC from './pages/SettingsPC'
+import Infomation from './pages/Infomation'
+import Calendar from './pages/Calendar'
+import Documents from './pages/Documents'
 
 export const userRouteList = [
   {
-    path: '/profile',
+    path: '/infomation',
     element: (
       <ProfileLayout>
-        <Overview />
+        <Infomation />
       </ProfileLayout>
     )
   },
@@ -17,7 +17,7 @@ export const userRouteList = [
     path: '/calendar',
     element: (
       <ProfileLayout>
-        <Teams />
+        <Calendar />
       </ProfileLayout>
     )
   },
@@ -25,7 +25,7 @@ export const userRouteList = [
     path: '/document',
     element: (
       <ProfileLayout>
-        <SettingsPC />
+        <Documents />
       </ProfileLayout>
     )
   }

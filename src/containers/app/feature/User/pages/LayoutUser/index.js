@@ -18,7 +18,7 @@ const menu = [
   {
     icon: <UserIconNavbar />,
     title: 'Quản lý thông tin',
-    link: '/profile'
+    link: '/infomation'
   },
   {
     icon: <CalendarIconNavbar />,
