@@ -3,6 +3,8 @@ import classNames from 'classnames/bind'
 import styles from './Profile.module.sass'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import AppModal from '@src/components/AppModal/AppModal'
+import ChangePassword from '../ChangePassword'
 
 const cx = classNames.bind(styles)
 
@@ -144,8 +146,18 @@ function Profile() {
                 >
                   *********
                 </div>
-
-                <div className={cx('changepassword')}>Đổi mật khẩu</div>
+                <AppModal
+                  triggerBtn={<div className={cx('changepassword')}>Đổi mật khẩu</div>}
+                  contentStyle={{
+                    width: '435px',
+                    height: '354px',
+                    padding: '45px 60px 20px',
+                    backgroundColor: 'white',
+                    boxShadow: '4px 4px 10px 0px #00000040'
+                  }}
+                >
+                  <ChangePassword />
+                </AppModal>
               </div>
             </div>
           </div>
