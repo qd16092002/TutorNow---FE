@@ -255,7 +255,7 @@ function Login() {
               <AppButton
                 onClick={submit}
                 isLoading={isVerifying}
-                style={{ background: 'linear-gradient(96.06deg, #526AEA 4.1%, #B0AEFF 146.32%)' }}
+                style={{ background: 'rgba(255, 255, 255, 1)', color: 'rgba(66, 79, 65, 1)' }}
               >
                 Continue
               </AppButton>

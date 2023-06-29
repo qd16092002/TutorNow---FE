@@ -34,31 +34,10 @@ const menu = [
 
 function LayoutUser() {
   const location = useLocation()
-  // const dispatch = useDispatch()
-  // const navigate = useNavigate()
-  // const userInfo = useSelector((state) => state.auth.user)
-  // const handleLogout = () => {
-  //   dispatch(logout())
-  //   cookies.remove('access_token')
-  //   navigate('/')
-  // }
+
   return (
     <div className={cx('LayoutUser-wrapper')}>
       <div className={cx('user-card')}>
-        {/* <div className={cx('head')}> */}
-        {/* <div className={cx('avatar')}>
-            <Avatar username={userInfo?.username} />
-          </div> */}
-        {/* <div className={cx('avatar')}>{userInfo?.username && userInfo?.username[0]?.toUpperCase()}</div> */}
-        {/* <div className={cx('info')}>
-            <div className={cx('__name')}>{userInfo?.username}</div>
-            {userInfo?.last_name ? (
-              <div className={cx('__position')}>
-                {userInfo?.first_name} {userInfo?.last_name}
-              </div>
-            ) : null}
-          </div> */}
-        {/* </div> */}
         <ul className={cx('menu')}>
           {menu.map((item, index) => {
             return (
@@ -71,10 +50,6 @@ function LayoutUser() {
             )
           })}
         </ul>
-        {/* <button onClick={handleLogout} className={cx('sign-out')}>
-          <p>Sign out</p>
-          <SignOutIcon />
-        </button> */}
       </div>
     </div>
   )

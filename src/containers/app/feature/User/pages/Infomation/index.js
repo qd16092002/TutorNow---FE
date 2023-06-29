@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { Col, Row } from 'antd'
 import { useState } from 'react'
 import Profile from '../../components/Profile'
+import EditProfile from '../../components/EditProfile'
 
 const cx = classNames.bind(styles)
 const TABS = {
@@ -22,7 +23,7 @@ function Infomation() {
   const [activeTab, setActiveTab] = useState(TABS.PROFILE)
 
   return (
-    <div>
+    <div className={cx('form-wallpaper')}>
       <div className={cx('content')}>
         <div className={cx('avatar')}>
           <AvatarQD />
@@ -51,10 +52,8 @@ function Infomation() {
             </div>
           </Col>
         </Row>
-        <div>
-          {activeTab.code === TABS.EDITPROFILE.code && <div>1</div>}
-          {activeTab.code === TABS.PROFILE.code && <Profile />}
-        </div>
+        {activeTab.code === TABS.EDITPROFILE.code && <EditProfile />}
+        {activeTab.code === TABS.PROFILE.code && <Profile />}
       </div>
     </div>
   )
