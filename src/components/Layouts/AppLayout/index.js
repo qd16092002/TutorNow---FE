@@ -1,4 +1,4 @@
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 function AppLayout({ children }) {
@@ -6,7 +6,7 @@ function AppLayout({ children }) {
     <>
       <Header />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
