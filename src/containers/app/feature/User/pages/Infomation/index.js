@@ -54,6 +54,8 @@ function Infomation() {
         </Row>
         {activeTab.code === TABS.EDITPROFILE.code && <EditProfile />}
         {activeTab.code === TABS.PROFILE.code && <Profile />}
+        {/* {activeTab.code === TABS.EDITPROFILE.code && <Profile />}
+        {activeTab.code === TABS.PROFILE.code && <EditProfile />} */}
       </div>
     </div>
   )

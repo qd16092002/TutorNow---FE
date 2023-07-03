@@ -1,11 +1,10 @@
 import classNames from 'classnames/bind'
 import styles from './Header.module.sass'
 import { useDispatch, useSelector } from 'react-redux'
-import { BellNotification, IconProfile, SignOutIcon } from '@src/assets/svgs'
+import { BellNotification, IconButtonSignIn, IconButtonSignUp, IconProfile, SignOutIcon } from '@src/assets/svgs'
 import TutorNowLogo from '@src/assets/images/TutorNowLogo.png'
 import { Link, useNavigate } from 'react-router-dom'
 import AppButton from '@src/components/AppButton'
-import { useTranslation } from 'react-i18next'
 import { Divider, Dropdown, Menu } from 'antd'
 import AppLongText from '@src/components/AppLongText/AppLongText'
 import { logout } from '@src/containers/authentication/feature/Auth/authSlice'
@@ -16,7 +15,6 @@ const cx = classNames.bind(styles)
 function Header() {
   const userInfo = useSelector((state) => state.auth.user)
   console.log('userInfo:: ', userInfo)
-  const { t } = useTranslation()
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
   // const handleChangeLang
   const dispatch = useDispatch()
@@ -45,11 +43,7 @@ function Header() {
               <div className={cx('notification')}>
                 <BellNotification />
               </div>
-              {/* <div className={cx('avatar')}>{userInfo?.username && userInfo?.username[0]?.toUpperCase()}</div>
-              <div className={cx('nameandposition')}>
-                <div className={cx('name')}>{userInfo?.username}</div>
-                <div className={cx('role')}>Admin</div>
-              </div> */}
+
               <Dropdown
                 overlay={
                   <Menu style={{ borderRadius: '10px', padding: '10px', maxWidth: '350px' }}>
@@ -175,10 +169,28 @@ function Header() {
         ) : (
           <div className={cx('auth')}>
             <Link to='/login'>
-              <AppButton style={{ marginRight: '5px' }}>{t('header.auth.sign-in')}</AppButton>
+              <AppButton className={cx('signin')}>
+                <div
+                  style={{
+                    marginTop: '3px'
+                  }}
+                >
+                  <IconButtonSignIn />
+                </div>
+                Sign In
+              </AppButton>
             </Link>
             <Link to='/signup'>
-              <AppButton>{t('header.auth.sign-up')}</AppButton>
+              <AppButton className={cx('signup')}>
+                <div
+                  style={{
+                    marginTop: '3px'
+                  }}
+                >
+                  <IconButtonSignUp />
+                </div>
+                Sign Up
+              </AppButton>
             </Link>
           </div>
         )}

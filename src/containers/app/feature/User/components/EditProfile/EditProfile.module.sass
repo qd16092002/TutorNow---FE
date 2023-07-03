@@ -1,12 +1,17 @@
 .details
-    width: 80%
+    width: 30vw
     margin-top: 20px
     margin-bottom: 40px
-
+    display: flex
+    justify-content: center
+    margin: auto
+    margin-right: 40%
     .__info
+        width: 100%
         padding: 16px 24px 0 24px
-        border: 1px solid #CECECE
-        box-shadow: 3px 3px 10px 0px #00000026
+        border: none
+        box-shadow: 4px 4px 10px 0px #00000040
+        background-color: #FFFFFF
 
         .item
             width: 100%
@@ -51,3 +56,40 @@
         text-decoration: underline
         color: #587056
         cursor: pointer
+.inputsettings
+    background-color: #FFFFFF
+    color: #7E7E7E
+    border: none
+    text-align: right
+    font-family: 'Play'
+    font-style: normal
+    font-weight: 600
+    font-size: 12px
+    margin-bottom: 2px
+    &:focus-visible
+        outline: none
+.footer
+    display: flex
+    justify-content: space-between
+    margin-bottom: 10px
+    margin-top: 20px
+    div
+        font-family: Play
+        font-size: 12px
+        font-weight: 700
+        line-height: 26px
+        letter-spacing: -0.18000000715255737px
+        text-align: left
+        color: #7B7A7A
+        &::before
+            content: '*'
+            color: #ff0000
+    button
+        width: 134px
+        padding: 10px 15px 10px 15px
+        justify: space-between
+        background: #587056
+        color: #FFFFFF
+        &:hover
+            background-color: #424F41
+            cursor: pointer
