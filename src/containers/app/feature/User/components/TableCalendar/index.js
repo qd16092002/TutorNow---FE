@@ -85,6 +85,8 @@ function TableCalendar() {
                     contentStyle={{
                       width: '50vw',
                       height: '50vh',
+                      left: '60vw',
+                      top: '55vh',
                       backgroundColor: 'white',
                       boxShadow: '4px 4px 10px 0px #00000040'
                     }}
