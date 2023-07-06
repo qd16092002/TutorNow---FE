@@ -7,6 +7,8 @@ import { Col, Row } from 'antd'
 import { useState } from 'react'
 import Profile from '../../components/Profile'
 import EditProfile from '../../components/EditProfile'
+import ProfileStudent from '../../components/ProfileStudent'
+import ProfileTutor from '../../components/ProfileTutor'
 
 const cx = classNames.bind(styles)
 const TABS = {
@@ -72,8 +74,11 @@ function Infomation() {
         </Row>
         {activeTab.code === TABS.EDITPROFILE.code && <EditProfile />}
         {activeTab.code === TABS.PROFILE.code && <Profile />}
-        {/* {activeTab.code === TABS.EDITPROFILE.code && <Profile />}
-        {activeTab.code === TABS.PROFILE.code && <EditProfile />} */}
+        {activeTab.code === TABS.PROFILESUDENT.code && <ProfileStudent />}
+        {activeTab.code === TABS.PROFILETUTOR.code && <ProfileTutor />}
+        {/* {activeTab.code === TABS.PROFILE.code && <ProfileStudent />}
+        {activeTab.code === TABS.EDITPROFILE.code && <EditProfile />}
+        {activeTab.code === TABS.PROFILESUDENT.code && <Profile />} */}
       </div>
     </div>
   )
