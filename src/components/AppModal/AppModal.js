@@ -33,7 +33,7 @@ const AppModal = forwardRef(
         <Dialog.Portal>
           <Dialog.Overlay className={cx('DialogOverlay')} />
           <Dialog.Content
-            style={{ width: props.width, height: props.height, ...contentStyle, overflowY: 'scroll' }}
+            style={{ width: props.width, height: props.height, ...contentStyle }}
             className={cx('DialogContent')}
           >
             {props.children}

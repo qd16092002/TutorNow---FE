@@ -15,6 +15,12 @@ const TABS = {
   },
   EDITPROFILE: {
     code: 'EDITPROFILE'
+  },
+  PROFILESUDENT: {
+    code: 'PROFILESUDENT'
+  },
+  PROFILETUTOR: {
+    code: 'PROFILETUTOR'
   }
 }
 
@@ -48,6 +54,18 @@ function Infomation() {
                 onClick={() => setActiveTab(TABS.EDITPROFILE)}
               >
                 Cài đặt & Chỉnh sửa hồ sơ
+              </div>
+              <div
+                className={cx('header__title', activeTab.code === TABS.PROFILESUDENT.code ? 'active' : 'inactive')}
+                onClick={() => setActiveTab(TABS.PROFILESUDENT)}
+              >
+                Thông tin học sinh
+              </div>
+              <div
+                className={cx('header__title', activeTab.code === TABS.PROFILETUTOR.code ? 'active' : 'inactive')}
+                onClick={() => setActiveTab(TABS.PROFILETUTOR)}
+              >
+                Thông tin gia sư
               </div>
             </div>
           </Col>
