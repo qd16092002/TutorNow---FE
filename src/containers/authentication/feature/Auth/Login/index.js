@@ -214,7 +214,7 @@ function Login() {
                   <div>or</div>
                   <div className={cx('vecto')}></div>
                 </div>
-                <Link to='https://www.facebook.com/quangdao1609/' target='_blank'>
+                <Link to='https://www.facebook.com' target='_blank'>
                   <div className={cx('loginwithfacebook')}>
                     <div>
                       <FacebookLogin />
