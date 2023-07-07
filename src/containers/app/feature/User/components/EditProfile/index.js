@@ -24,7 +24,6 @@ function EditProfile() {
   return (
     <div>
       <Toaster position='top-center' />
-
       <form onSubmit={handleSubmit(onSubmit)} className={cx('details')}>
         <div className={cx('__info')}>
           <div className={cx('item')}>

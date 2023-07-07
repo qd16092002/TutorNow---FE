@@ -1,19 +1,32 @@
+/* eslint-disable react/jsx-no-undef */
 import classNames from 'classnames/bind'
-import React, { useState } from 'react'
-import styles from './TableCalendar.module.sass'
+import styles from './ListDocuments.module.sass'
+import { DocumentsBox } from '@src/assets/svgs'
 import { Table } from 'antd'
 import { IconUserSearch } from '@src/assets/svgs'
 import AppModal from '@src/components/AppModal/AppModal'
-import ClassDetails from '../ClassDetails'
-import { listUser } from '@src/app-configs'
+import { listDocuments } from '@src/app-configs'
+import { useState } from 'react'
 
 const cx = classNames.bind(styles)
-function TableCalendar() {
-  const [searchedText, setSearchedText] = useState('')
-  const [saveUserId, setSaveUserId] = useState(null)
 
+function ListDocuments() {
+  const [searchedText, setSearchedText] = useState('')
   return (
-    <div className={cx('wall-paper')}>
+    <div className={cx('wallpaper')}>
+      <div className={cx('header')}>
+        <div className={cx('title')}>
+          <DocumentsBox />
+          <div
+            style={{
+              marginTop: '-5px'
+            }}
+            className={cx('title_name')}
+          >
+            Kho tài liệu
+          </div>
+        </div>
+      </div>
       <div className={cx('information')}>
         <div
           style={{
@@ -28,7 +41,7 @@ function TableCalendar() {
             </label>
             <input
               className={cx('search')}
-              placeholder='Tìm kiếm thông tin giảng viên, học sinh...  '
+              placeholder='Tìm kiếm thông tin  '
               // eslint-disable-next-line react/no-unknown-property
               onSearch={(value) => {
                 setSearchedText(value)
@@ -50,27 +63,27 @@ function TableCalendar() {
               onFilter: (value, record) => {
                 return (
                   String(record.id).toLowerCase().includes(value.toLowerCase()) ||
-                  String(record.nameStudent).toLowerCase().includes(value.toLowerCase()) ||
-                  String(record.codeClass).toLowerCase().includes(value.toLowerCase()) ||
-                  String(record.subject).toLowerCase().includes(value.toLowerCase()) ||
+                  String(record.namefile).toLowerCase().includes(value.toLowerCase()) ||
+                  String(record.grade).toLowerCase().includes(value.toLowerCase()) ||
+                  String(record.lever).toLowerCase().includes(value.toLowerCase()) ||
                   String(record.note).toLowerCase().includes(value.toLowerCase())
                 )
               }
             },
             {
-              title: 'Tên Học sinh',
-              dataIndex: 'nameStudent',
-              key: 'nameStudent'
+              title: 'Tên file',
+              dataIndex: 'namefile',
+              key: 'namefile'
             },
             {
-              title: 'Mã số lớp',
-              dataIndex: 'codeClass',
-              key: 'codeClass'
+              title: 'Khối',
+              dataIndex: 'grade',
+              key: 'grade'
             },
             {
-              title: 'Môn học',
-              dataIndex: 'subject',
-              key: 'subject'
+              title: 'Mức độ',
+              dataIndex: 'lever',
+              key: 'lever'
             },
             {
               title: 'Ghi chú',
@@ -89,22 +102,18 @@ function TableCalendar() {
                       backgroundColor: 'white',
                       boxShadow: '4px 4px 10px 0px #00000040'
                     }}
-                    onClick={() => {
-                      setSaveUserId(record?._id)
-                    }}
                   >
-                    <ClassDetails />
+                    Documents
                   </AppModal>
                 )
               }
             }
           ]}
-          dataSource={listUser}
+          dataSource={listDocuments}
         ></Table>
-        {saveUserId && <ClassDetails />}
       </div>
     </div>
   )
 }
 
-export default TableCalendar
+export default ListDocuments
