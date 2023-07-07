@@ -159,3 +159,45 @@ export const leverDocuments = [
     HARD: 'Khó'
   }
 ]
+export const listDocuments = [
+  {
+    key: '1',
+    id: '1',
+    namefile: 'Sinh học 12 Nâng Cao',
+    grade: '12',
+    lever: 'Trung bình',
+    note: 'Xem chi tiết'
+  },
+  {
+    key: '2',
+    id: '2',
+    namefile: 'Toán 10 ',
+    grade: '10',
+    lever: 'Dễ',
+    note: 'Xem chi tiết'
+  },
+  {
+    key: '3',
+    id: '3',
+    namefile: 'Ngữ văn 12',
+    grade: '12',
+    lever: 'Dễ ',
+    note: 'Xem chi tiết'
+  },
+  {
+    key: '4',
+    id: '4',
+    namefile: 'Tin học 9',
+    grade: '9',
+    lever: 'Trung bình',
+    note: 'Xem chi tiết'
+  },
+  {
+    key: '5',
+    id: '6',
+    namefile: 'Vật lí 12',
+    grade: '12',
+    lever: 'Khó',
+    note: 'Xem chi tiết'
+  }
+]
