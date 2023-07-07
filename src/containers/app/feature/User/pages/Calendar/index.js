@@ -20,7 +20,7 @@ function Calendar() {
       </div>
       <div
         style={{
-          width: '90%',
+          width: '95%',
           marginTop: '20px'
         }}
       >
