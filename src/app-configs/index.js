@@ -152,3 +152,10 @@ export const listTutor = [
     dateofbirth: '16/09/2002'
   }
 ]
+export const leverDocuments = [
+  {
+    EASY: 'Dễ',
+    MEDIUM: 'trung bình',
+    HARD: 'Khó'
+  }
+]
