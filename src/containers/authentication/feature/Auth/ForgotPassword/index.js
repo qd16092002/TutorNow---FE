@@ -13,6 +13,7 @@ import { Toaster, toast } from 'react-hot-toast'
 import AppButton from '@src/components/AppButton'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
+import logologin from '@src/assets/images/logologin.png'
 
 const cx = classNames.bind(styles)
 
@@ -51,33 +52,10 @@ function ForgotPassword() {
         <Col md={12} sm={0} xs={0}>
           <div className={cx('background-wrapper')}>
             <div className={cx('background')}>
-              {/* <div className={cx('vector1')}>
-                <Vector1 />
+              <div className={cx('img2')}>
+                <img src={logologin} alt='logo' />
               </div>
-              <div className={cx('vector2')}>
-                <Vector2 />
-              </div>
-              <div className={cx('vector3')}>
-                <Vector3 />
-              </div>
-              <div className={cx('vector4')}>
-                <Vector4 />
-              </div>
-              <div className={cx('vector5')}>
-                <Vector5 />
-              </div>
-              <div className={cx('vector6')}>
-                <Vector6 />
-              </div>
-              <div className={cx('vector7')}>
-                <Vector7 />
-              </div>
-              <div className={cx('vector8')}>
-                <Vector8 />
-              </div> */}
-              <div className={cx('img')} style={{ backgroundImage: `url(${login_bg})` }}>
-                <div className={cx('gradient')}></div>
-              </div>
+              <div className={cx('img')} style={{ backgroundImage: `url(${login_bg})` }}></div>
             </div>
           </div>
         </Col>
@@ -88,13 +66,25 @@ function ForgotPassword() {
 
               {successSubmit ? (
                 <div className={cx('data-sent')}>
-                  <p className={cx('text-top')}>
+                  <p
+                    className={cx('text-top')}
+                    style={{
+                      color: '#FFFF'
+                    }}
+                  >
                     {`We sent a reset link to your email ${getValues(
                       'email'
                     )} Please check your email and click the link to
                     set your new password.`}
                   </p>
-                  <p className={cx('text-bottom')}>Haven’t you receive the email?</p>
+                  <p
+                    className={cx('text-bottom')}
+                    style={{
+                      color: '#FFFF'
+                    }}
+                  >
+                    Haven’t you receive the email?
+                  </p>
                   <div
                     onClick={() => {
                       setSuccessSubmit(false)
@@ -130,7 +120,7 @@ function ForgotPassword() {
                     </div>
 
                     <AppButton
-                      style={{ background: 'linear-gradient(96.06deg, #526AEA 4.1%, #B0AEFF 146.32%)' }}
+                      style={{ background: 'rgba(255, 255, 255, 1)', color: 'rgba(66, 79, 65, 1)' }}
                       className={cx('button')}
                       type='submit'
                       isLoading={isLoading}
