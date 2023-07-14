@@ -22,6 +22,19 @@ function TableCalendar() {
             width: '100%'
           }}
         >
+          <AppModal
+            triggerBtn={<div className={cx('addnewcalendar')}>Xem chi tiết</div>}
+            contentStyle={{
+              width: '50vw',
+              height: '50vh',
+              left: '60vw',
+              top: '55vh',
+              backgroundColor: 'white',
+              boxShadow: '4px 4px 10px 0px #00000040'
+            }}
+          >
+            <ClassDetails />
+          </AppModal>
           <div className={cx('search-wrapper')}>
             <label htmlFor='search' className={cx('icon')}>
               <IconUserSearch />
@@ -71,6 +84,11 @@ function TableCalendar() {
               title: 'Môn học',
               dataIndex: 'subject',
               key: 'subject'
+            },
+            {
+              title: 'Tên gia sư',
+              dataIndex: 'nameTutor',
+              key: 'nameTutor'
             },
             {
               title: 'Ghi chú',

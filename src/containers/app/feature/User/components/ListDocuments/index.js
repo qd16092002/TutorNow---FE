@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-no-undef */
 import classNames from 'classnames/bind'
 import styles from './ListDocuments.module.sass'
-import { DocumentsBox } from '@src/assets/svgs'
+import { DocumentsBox, IconUserSearch } from '@src/assets/svgs'
 import { Table } from 'antd'
-import { IconUserSearch } from '@src/assets/svgs'
 import AppModal from '@src/components/AppModal/AppModal'
 import { listDocuments } from '@src/app-configs'
 import { useState } from 'react'

@@ -254,6 +254,7 @@ function Login() {
               )}
               <AppButton
                 onClick={submit}
+                className={cx('button')}
                 isLoading={isVerifying}
                 style={{ background: 'rgba(255, 255, 255, 1)', color: 'rgba(66, 79, 65, 1)' }}
               >
