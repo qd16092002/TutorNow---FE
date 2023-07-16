@@ -3,9 +3,9 @@ import classNames from 'classnames/bind'
 import styles from './ListDocuments.module.sass'
 import { DocumentsBox, IconUserSearch } from '@src/assets/svgs'
 import { Table } from 'antd'
-import AppModal from '@src/components/AppModal/AppModal'
 import { listDocuments } from '@src/app-configs'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const cx = classNames.bind(styles)
 
@@ -91,19 +91,12 @@ function ListDocuments() {
               render: (record) => {
                 console.log('record ::', record)
                 return (
-                  <AppModal
-                    triggerBtn={<div className={cx('xemchitiet')}>Xem chi tiết</div>}
-                    contentStyle={{
-                      width: '50vw',
-                      height: '50vh',
-                      left: '60vw',
-                      top: '55vh',
-                      backgroundColor: 'white',
-                      boxShadow: '4px 4px 10px 0px #00000040'
-                    }}
+                  <Link
+                    target='_blank'
+                    to='https://drive.google.com/file/d/1sT_Iwb8THGHOxUibS1FNV-uGZzl8UVYr/view?usp=sharing'
                   >
-                    Documents
-                  </AppModal>
+                    <div className={cx('xemchitiet')}>Xem chi tiết</div>
+                  </Link>
                 )
               }
             }

@@ -6,6 +6,7 @@ import { IconUserSearch } from '@src/assets/svgs'
 import AppModal from '@src/components/AppModal/AppModal'
 import ClassDetails from '../ClassDetails'
 import { listUser } from '@src/app-configs'
+import AddCalendar from '../AddCalendar'
 
 const cx = classNames.bind(styles)
 function TableCalendar() {
@@ -23,17 +24,17 @@ function TableCalendar() {
           }}
         >
           <AppModal
-            triggerBtn={<div className={cx('addnewcalendar')}>Xem chi tiết</div>}
+            triggerBtn={<div className={cx('addnewcalendar')}>Thêm khóa học</div>}
             contentStyle={{
-              width: '50vw',
-              height: '50vh',
+              width: '720px',
+              height: '300px',
               left: '60vw',
-              top: '55vh',
+              top: '45vh',
               backgroundColor: 'white',
               boxShadow: '4px 4px 10px 0px #00000040'
             }}
           >
-            <ClassDetails />
+            <AddCalendar />
           </AppModal>
           <div className={cx('search-wrapper')}>
             <label htmlFor='search' className={cx('icon')}>
@@ -66,6 +67,7 @@ function TableCalendar() {
                   String(record.nameStudent).toLowerCase().includes(value.toLowerCase()) ||
                   String(record.codeClass).toLowerCase().includes(value.toLowerCase()) ||
                   String(record.subject).toLowerCase().includes(value.toLowerCase()) ||
+                  String(record.nameTutor).toLowerCase().includes(value.toLowerCase()) ||
                   String(record.note).toLowerCase().includes(value.toLowerCase())
                 )
               }
