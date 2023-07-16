@@ -2,7 +2,6 @@ import classNames from 'classnames/bind'
 import styles from './AddDocuments.module.sass'
 import { FormProvider, useForm } from 'react-hook-form'
 import { IconAddDocuments } from '@src/assets/svgs'
-import AppFileInput from '@src/components/AppFileInput/AppFileInput'
 // import { useRef } from 'react'
 import AppButton from '@src/components/AppButton'
 
@@ -82,19 +81,7 @@ function AddDocuments() {
               </select>
             </div>
             <div>
-              <div
-                {...register('file')}
-                className={cx('input')}
-                style={{
-                  marginTop: '-3px'
-                }}
-              >
-                <AppFileInput
-                  name='attachmentFile'
-                  accept='application/pdf,application/msword,
-                                        application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-                ></AppFileInput>
-              </div>
+              <input {...register('file')} className={cx('input')} placeholder='Link tài liệu'></input>
             </div>
           </div>
         </form>
