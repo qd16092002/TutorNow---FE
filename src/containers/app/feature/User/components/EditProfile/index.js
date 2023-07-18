@@ -1,25 +1,40 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import classNames from 'classnames/bind'
 import styles from './EditProfile.module.sass'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { useRef } from 'react'
 import { Toaster, toast } from 'react-hot-toast'
+import { useChangeUserInformationMutation } from '../../userService'
+import { setUser } from '@src/containers/authentication/feature/Auth/authSlice'
+import { authApi } from '@src/containers/authentication/feature/Auth/authService'
 
 const cx = classNames.bind(styles)
 
 function EditProfile() {
   const userInfo = useSelector((state) => state.auth.user)
-  const {
-    register,
-    handleSubmit
-
-    // formState: { errors }
-  } = useForm()
+  const { register, handleSubmit } = useForm()
   const formInput = useRef()
+  const [updateUser, { isLoading: isUpdating }] = useChangeUserInformationMutation()
+
   // const [updateUser, { isLoading: isUpdating }] = useChangeUserInformationMutation()
-  const onSubmit = async () => {
-    toast.success('Update information successfully!')
+  const dispatch = useDispatch()
+  const [getProfile] = authApi.endpoints.getLayoutUser.useLazyQuery()
+
+  const onSubmit = async (data, e) => {
+    const updateResponse = await updateUser(data)
+    e.preventDefault()
+
+    if (!updateResponse?.error) {
+      toast.success('Update information successfully!')
+      const response = await getProfile({}, false)
+      if (!response?.error) {
+        console.log('response::  ', response)
+        dispatch(setUser(response.data[0]))
+      }
+    } else {
+      toast.error('Something went wrong, please try again')
+    }
   }
   return (
     <div>
@@ -33,7 +48,7 @@ function EditProfile() {
               placeholder='Thêm tên người dùng'
               type='text'
               {...register('first_name')}
-              defaultValue={userInfo?.first_name}
+              defaultValue={userInfo?.fullName}
             ></input>
           </div>
           <div className={cx('item')}>
@@ -53,7 +68,7 @@ function EditProfile() {
               placeholder='Thêm giới tính'
               type='text'
               {...register('gender')}
-              defaultValue='Nam'
+              defaultValue={userInfo?.gender}
             ></input>
           </div>
           <div className={cx('item')}>
@@ -63,7 +78,7 @@ function EditProfile() {
               placeholder='Thêm địa chỉ'
               type='text'
               {...register('country')}
-              defaultValue={userInfo?.country}
+              defaultValue={userInfo?.address}
             ></input>
           </div>
           <div className={cx('item')}>
@@ -72,8 +87,8 @@ function EditProfile() {
               className={cx('inputsettings')}
               placeholder='Thêm số điện thoại'
               type='text'
-              {...register('phone_number')}
-              defaultValue='0824216169'
+              {...register('phoneNumber')}
+              defaultValue={userInfo?.phoneNumber}
             ></input>
           </div>
           <div className={cx('footer')}>
@@ -83,6 +98,7 @@ function EditProfile() {
                 formInput.current.click()
               }}
               type='submit'
+              disabled={isUpdating}
               className={cx('button')}
             >
               Cập nhật

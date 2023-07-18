@@ -23,7 +23,7 @@ function Profile() {
                 paddingBottom: '2px'
               }}
             >
-              {userInfo?.first_name} {userInfo?.last_name}
+              {userInfo?.fullName}
             </p>
           </div>
           <div className={cx('item')}>
@@ -45,7 +45,7 @@ function Profile() {
                 paddingBottom: '2px'
               }}
             >
-              Nam
+              {userInfo?.gender}
             </p>
           </div>
           <div className={cx('item')}>
@@ -56,7 +56,7 @@ function Profile() {
                 paddingBottom: '2px'
               }}
             >
-              {userInfo?.country}
+              {userInfo?.address}
             </p>
           </div>
           <div
@@ -73,10 +73,7 @@ function Profile() {
                 display: 'flex'
               }}
             >
-              <Link
-                to='https://storage.googleapis.com/hust-files/2023-06-09/5578407897202688/cv_-_tran_quang_%C4%91ao_.4m.pdf'
-                target='_blank'
-              >
+              <Link to={userInfo?.cv_link} target='_blank'>
                 <div className={cx('linkcv')}>LinkCV</div>
               </Link>
 
@@ -112,7 +109,7 @@ function Profile() {
                 paddingBottom: '2px'
               }}
             >
-              0824216169
+              {userInfo?.phoneNumber}
             </p>
           </div>
           <div

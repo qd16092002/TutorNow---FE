@@ -13,20 +13,17 @@ export const authApi = createApi({
         return {
           url: '/user/login',
           method: 'POST',
-          body: body
-          // responseHandler: async (response) => {
-          //   const responseBody = await response.json()
-          //   if (responseBody.status !== RESPONSE_ERROR_STATUS) {
-          //     console.log('responseBody', responseBody)
-          //     cookies.set('access_token', responseBody?.metadata?.tokens?.accessToken, {
-          //       maxAge: REFRESH_TOKEN_EXPIRATION
-          //     })
-          //     cookies.set('user_id', responseBody?.metadata?.user?._id, {
-          //       maxAge: REFRESH_TOKEN_EXPIRATION
-          //     })
-          //   }
-          //   return responseBody
-          // }
+          body: body,
+          responseHandler: async (response) => {
+            const responseBody = await response.json()
+            if (responseBody.status !== RESPONSE_ERROR_STATUS) {
+              console.log('responseBody', responseBody)
+              cookies.set('access_token', responseBody?.accessToken, {
+                maxAge: REFRESH_TOKEN_EXPIRATION
+              })
+            }
+            return responseBody
+          }
         }
       }
     }),
@@ -63,12 +60,7 @@ export const authApi = createApi({
       query: () => ({
         url: '/user',
         cache: 'no-cache'
-      }),
-      invalidate: (oldData, newData, { queryFulfilled }) => {
-        // Only invalidate if the status of the response has changed.
-        console.log('queryFulfilled:: ', queryFulfilled)
-        return oldData?.status !== newData?.status
-      }
+      })
     }),
     oAuthLogin: build.query({
       query: () => ({
