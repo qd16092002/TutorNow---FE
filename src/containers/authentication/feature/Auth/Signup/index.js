@@ -10,28 +10,12 @@ import { useEffect, useState } from 'react'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { useForm } from 'react-hook-form'
 // import { FacebookLogo, GoogleLogo } from '@src/assets/svgs'
-import { yupResolver } from '@hookform/resolvers/yup'
 import { useSignupMutation } from '../authService'
-import * as Yup from 'yup'
 import ReactLoading from 'react-loading'
 import { useSelector } from 'react-redux'
 import { EyeClose, EyeShow } from '@src/assets/svgs'
 
 const cx = classNames.bind(styles)
-
-const registerSchema = Yup.object({
-  email: Yup.string().email().required(),
-  username: Yup.string().min(4).required(),
-  // firstName: Yup.string().required(),
-  // lastName: Yup.string().required(),
-  password: Yup.string().min(8).required(),
-  rePassword: Yup.string()
-    .min(8)
-    .test('passwords-match', 'Passwords must match', function (value) {
-      return this.parent.password === value
-    })
-    .required()
-})
 
 function Signup() {
   const [signup, { isLoading }] = useSignupMutation()
@@ -55,8 +39,7 @@ function Signup() {
     setError,
     formState: { errors }
   } = useForm({
-    mode: 'onChange',
-    resolver: yupResolver(registerSchema)
+    mode: 'onChange'
   })
 
   const onSubmit = async (data) => {
@@ -67,8 +50,7 @@ function Signup() {
         const response = await signup({
           username: data.username,
           email: data.email,
-          // first_name: data.firstName,
-          // last_name: data.lastName,
+          role: data.role,
           password: data.password
         }).unwrap()
 
@@ -167,26 +149,15 @@ function Signup() {
                 </Col>
                 <Col xs={24}>
                   <div className={cx('form-field')}>
-                    <label htmlFor='re-password-login'>Re-enter password</label>
-                    <input
-                      className={cx(errors.rePassword ? 'error' : '')}
-                      // onChange={(e) => {
-                      //   setFormData({ ...formData, password: e.target.value })
-                      // }}
-                      {...register('rePassword', { required: 'Password is not match' })}
-                      id='re-password-login'
-                      type={eyeShow ? 'text' : 'password'}
-                      placeholder='Enter your password again (+8 characters)'
-                    />
-                    <div className={cx('eye-icon')} onClick={() => setEyeShow(!eyeShow)}>
-                      {eyeShow ? <EyeShow /> : <EyeClose />}
-                    </div>
-                    {errors.rePassword && (
-                      <p className={cx('error-text')} role='alert'>
-                        {errors.rePassword?.message}
-                      </p>
-                    )}
-                    {/* <div className={cx('error-text')}>*Wrong password</div> */}
+                    <label htmlFor='role'>Role</label>
+                    <select {...register('subject')} className={cx('role')} id='role'>
+                      <option className={cx('option')} value='TUTOR'>
+                        TUTOR
+                      </option>
+                      <option className={cx('option')} value='STUDENT'>
+                        STUDENT
+                      </option>
+                    </select>
                   </div>
                 </Col>
               </Row>

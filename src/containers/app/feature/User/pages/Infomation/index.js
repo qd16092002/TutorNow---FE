@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import classNames from 'classnames/bind'
 import styles from './Infomation.module.sass'
-import { AvatarQD } from '@src/assets/svgs'
 import { useSelector } from 'react-redux'
 import { Col, Row } from 'antd'
 import { useState } from 'react'
@@ -34,7 +33,7 @@ function Infomation() {
     <div className={cx('form-wallpaper')}>
       <div className={cx('content')}>
         <div className={cx('avatar')}>
-          <AvatarQD />
+          <div className={cx('avatar')}>{userInfo?.username && userInfo?.username[0]?.toUpperCase()}</div>
         </div>
         <div className={cx('title')}>
           <div className={cx('name')}>Quản lý thông tin</div>

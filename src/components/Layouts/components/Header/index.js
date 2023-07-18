@@ -142,23 +142,21 @@ function Header() {
                 // arrow={{ pointAtCenter: true }}
               >
                 <div style={{ cursor: 'pointer', display: 'flex' }}>
-                  <div className={cx('avatar')}>{userInfo?.last_name && userInfo?.last_name[0]?.toUpperCase()}</div>
+                  <div className={cx('avatar')}>{userInfo?.username && userInfo?.username[0]?.toUpperCase()}</div>
                   <div
                     style={{
                       marginLeft: '10px',
                       marginTop: '5px'
                     }}
                   >
-                    <div className={cx('name')}>
-                      {userInfo?.first_name} {userInfo?.last_name}
-                    </div>
+                    <div className={cx('name')}>{userInfo?.username}</div>
                     <AppLongText
                       styles={{
                         color: 'rgba(255, 255, 255, 1)',
                         fontSize: '14px',
                         fontWeight: '400'
                       }}
-                      text={`Vị trí: Admin`}
+                      text={userInfo?.role}
                     ></AppLongText>
                   </div>
                 </div>

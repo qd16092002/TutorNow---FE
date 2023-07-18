@@ -55,7 +55,7 @@ export const AppRoutes = () => {
           if (response?.error?.status === 401) {
             dispatch(logout())
           } else {
-            dispatch(setUser(response.data))
+            dispatch(setUser(response.data[0]))
             dispatch(login())
           }
         })
