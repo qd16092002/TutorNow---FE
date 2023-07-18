@@ -7,4 +7,6 @@
   + NODE_ENV=development
   + BASE_API_URL=http://localhost:3002
 - add .evn.production
+  + NODE_ENV=production
+  + BASE_API_URL=http://localhost:3002
 - npm run dev
