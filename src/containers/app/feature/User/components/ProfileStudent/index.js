@@ -15,7 +15,7 @@ function ProfileStudent() {
   useEffect(() => {
     getstudent({}, false)
   }, [getstudent])
-  console.log(studentif)
+  const [profileid, setprofileId] = useState()
   return (
     <div className={cx('form-papper')}>
       <div className={cx('list')}>
@@ -56,12 +56,17 @@ function ProfileStudent() {
               }
             }
           ]}
+          onRow={(record) => ({
+            onClick: () => setprofileId(record?._id)
+          })}
           dataSource={studentif}
         ></Table>
       </div>
-      <div className={cx('profile')}>
-        <ProfileDetails />
-      </div>
+      {profileid && (
+        <div className={cx('profile')}>
+          <ProfileDetails id={profileid} />
+        </div>
+      )}
     </div>
   )
 }
