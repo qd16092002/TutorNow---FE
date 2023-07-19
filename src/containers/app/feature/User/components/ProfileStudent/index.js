@@ -1,17 +1,21 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import classNames from 'classnames/bind'
 import styles from './ProfileStudent.module.sass'
-import { listUser } from '@src/app-configs'
 import { Table } from 'antd'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IconUserSearch } from '@src/assets/svgs'
 import ProfileDetails from '../ProfileDetails'
+import { useLazyGetstudentQuery } from '../../userService'
 
 const cx = classNames.bind(styles)
 
 function ProfileStudent() {
   const [searchedText, setSearchedText] = useState('')
-
+  const [getstudent, { data: studentif }] = useLazyGetstudentQuery({})
+  useEffect(() => {
+    getstudent({}, false)
+  }, [getstudent])
+  console.log(studentif)
   return (
     <div className={cx('form-papper')}>
       <div className={cx('list')}>
@@ -44,15 +48,15 @@ function ProfileStudent() {
           columns={[
             {
               title: 'Học sinh',
-              dataIndex: 'nameStudent',
-              key: 'nameStudent',
+              dataIndex: 'fullName',
+              key: 'fullName',
               filteredValue: [searchedText],
               onFilter: (value, record) => {
                 return String(record.nameStudent).toLowerCase().includes(value.toLowerCase())
               }
             }
           ]}
-          dataSource={listUser}
+          dataSource={studentif}
         ></Table>
       </div>
       <div className={cx('profile')}>

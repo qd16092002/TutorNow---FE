@@ -1,17 +1,21 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import classNames from 'classnames/bind'
 import styles from './ProfileTutor.module.sass'
-import { listTutor } from '@src/app-configs'
 import { Table } from 'antd'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IconUserSearch } from '@src/assets/svgs'
 import ProfileDetails from '../ProfileDetails'
+import { useLazyGettutorQuery } from '../../userService'
 
 const cx = classNames.bind(styles)
 
 function ProfileTutor() {
   const [searchedText, setSearchedText] = useState('')
-
+  const [gettutor, { data: tutorif }] = useLazyGettutorQuery({})
+  useEffect(() => {
+    gettutor({}, false)
+  }, [gettutor])
+  console.log(tutorif)
   return (
     <div className={cx('form-papper')}>
       <div className={cx('list')}>
@@ -44,15 +48,15 @@ function ProfileTutor() {
           columns={[
             {
               title: 'Gia sư',
-              dataIndex: 'nameStudent',
-              key: 'nameStudent',
+              dataIndex: 'fullName',
+              key: 'fullName',
               filteredValue: [searchedText],
               onFilter: (value, record) => {
                 return String(record.nameStudent).toLowerCase().includes(value.toLowerCase())
               }
             }
           ]}
-          dataSource={listTutor}
+          dataSource={tutorif}
         ></Table>
       </div>
       <div className={cx('profile')}>

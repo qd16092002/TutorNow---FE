@@ -1,18 +1,21 @@
 import classNames from 'classnames/bind'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './TableCalendar.module.sass'
 import { Table } from 'antd'
 import { IconUserSearch } from '@src/assets/svgs'
 import AppModal from '@src/components/AppModal/AppModal'
 import ClassDetails from '../ClassDetails'
-import { listUser } from '@src/app-configs'
 import AddCalendar from '../AddCalendar'
+import { useLazyGetCalendarQuery } from '../../userService'
 
 const cx = classNames.bind(styles)
 function TableCalendar() {
   const [searchedText, setSearchedText] = useState('')
   const [saveUserId, setSaveUserId] = useState(null)
-
+  const [getCalendar, { data: calendarif }] = useLazyGetCalendarQuery({})
+  useEffect(() => {
+    getCalendar({}, false)
+  }, [getCalendar])
   return (
     <div className={cx('wall-paper')}>
       <div className={cx('information')}>
@@ -119,7 +122,7 @@ function TableCalendar() {
               }
             }
           ]}
-          dataSource={listUser}
+          dataSource={calendarif}
         ></Table>
         {saveUserId && <ClassDetails />}
       </div>
