@@ -100,93 +100,13 @@ export const userApi = createApi({
         }
       }
     }),
-    getSymbolByCategory: build.query({
-      query: (args) => {
-        return {
-          url: '/data/symbols',
-          params: args
-        }
-      }
-    }),
-    getVerifyCompetition: build.query({
-      query: () => {
-        return {
-          url: '/competition/nestquant_tournament_2023/registered'
-        }
-      }
-    }),
-    getLeaderboard: build.query({
-      query: () => {
-        return {
-          url: '/competition/nestquant_tournament_2023/performance/all?submission_type=public-test'
-        }
-      }
-    }),
-    getTeamInformation: build.query({
-      query: (args) => ({
-        // url: `/team`,
-        url: `/team?competition_id=nestquant_tournament_2023`,
-        params: args
-      })
-    }),
-    changeTeamInformation: build.mutation({
-      query: (body) => {
-        return {
-          url: '/team',
-          method: 'PUT',
-          body: body,
-          responseHandler: async (response) => {
-            const responseBody = await response.json()
-            return responseBody
-          }
-        }
-      }
-    }),
-    getTeamMembers: build.query({
-      query: () => ({
-        url: `/team/members`
-      })
-    }),
+
     getallprofile: build.query({
       query: () => ({
         url: `/getalluser`
       })
     }),
-    submitModel: build.mutation({
-      query: ({ params, body }) => ({
-        url: `/competition/submit/file?competition_id=${params.competitionId}&submission_type=${params.submission}&symbol=${params.symbol}`,
-        method: 'POST',
-        body: body,
-        prepareHeaders: (headers) => {
-          headers.set('Content-Type', 'multipart/form-data')
-          return headers
-        }
-      })
-    }),
-    // https://api-dev.nestquant.com/competition/{competition_id}/performance/{submission_type}/mean-scores
-    getSubmissionMeanScores: build.query({
-      query: ({ path }) => ({
-        url: `/competition/${path.competitionId}/performance/${path.submission}/mean-scores`
-        // params: params
-      })
-    }),
-    getSubmissionTimeRecords: build.query({
-      query: ({ path, params }) => ({
-        url: `/competition/${path.competitionId}/performance/${path.submission}/records`,
-        params: params
-      })
-    }),
-    getSubmissionSymbols: build.query({
-      query: ({ path }) => ({
-        url: `/competition/${path.competitionId}/performance/${path.submission}/symbols`
-      })
-    }),
-    getModelPerformance: build.query({
-      query: ({ path, params }) => ({
-        url: `/competition/${path.competitionId}/performance/${path.submission}/record`,
-        params: params
-      })
-    }),
+
     getAllUserPerformance: build.query({
       query: ({ path, params }) => ({
         url: `/competition/${path.competitionId}/performance/all`,
@@ -245,6 +165,13 @@ export const userApi = createApi({
           }
         }
       }
+    }),
+    getProfileById: build.mutation({
+      query: (id) => {
+        return {
+          url: `/users/${id}`
+        }
+      }
     })
   })
 })
@@ -261,17 +188,12 @@ export const {
   useForgotPasswordMutation,
   useLazyGetApiKeyQuery,
   useCreateApiKeyMutation,
-  useLazyGetSymbolByCategoryQuery,
-  useLazyGetVerifyCompetitionQuery,
-  useLazyGetLeaderboardQuery,
-  useChangeTeamInformationMutation,
-  useLazyGetTeamInformationQuery,
-  useLazyGetTeamMembersQuery,
   useLazyGetallprofileQuery,
   useLazyGetstudentQuery,
   useLazyGettutorQuery,
   useLazyGetDocumentsQuery,
   useLazyGetCalendarQuery,
   useCreatCalendarMutation,
-  useCreatDocumentsMutation
+  useCreatDocumentsMutation,
+  useGetProfileByIdMutation
 } = userApi

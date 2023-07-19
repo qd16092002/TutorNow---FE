@@ -15,7 +15,8 @@ function ProfileTutor() {
   useEffect(() => {
     gettutor({}, false)
   }, [gettutor])
-  console.log(tutorif)
+  const [profileid, setprofileId] = useState()
+
   return (
     <div className={cx('form-papper')}>
       <div className={cx('list')}>
@@ -56,12 +57,17 @@ function ProfileTutor() {
               }
             }
           ]}
+          onRow={(record) => ({
+            onClick: () => setprofileId(record?._id)
+          })}
           dataSource={tutorif}
         ></Table>
       </div>
-      <div className={cx('profile')}>
-        <ProfileDetails />
-      </div>
+      {profileid && (
+        <div className={cx('profile')}>
+          <ProfileDetails id={profileid} />
+        </div>
+      )}
     </div>
   )
 }
