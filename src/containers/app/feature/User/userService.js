@@ -147,6 +147,11 @@ export const userApi = createApi({
         url: `/team/members`
       })
     }),
+    getallprofile: build.query({
+      query: () => ({
+        url: `/getalluser`
+      })
+    }),
     submitModel: build.mutation({
       query: ({ params, body }) => ({
         url: `/competition/submit/file?competition_id=${params.competitionId}&submission_type=${params.submission}&symbol=${params.symbol}`,
@@ -194,6 +199,26 @@ export const userApi = createApi({
         method: 'DELETE',
         params: body
       })
+    }),
+    getstudent: build.query({
+      query: () => ({
+        url: `/getalluser?role=STUDENT`
+      })
+    }),
+    gettutor: build.query({
+      query: () => ({
+        url: `/getalluser?role=TUTOR`
+      })
+    }),
+    getDocuments: build.query({
+      query: () => ({
+        url: `/documents`
+      })
+    }),
+    getCalendar: build.query({
+      query: () => ({
+        url: `/calendar`
+      })
     })
   })
 })
@@ -215,5 +240,10 @@ export const {
   useLazyGetLeaderboardQuery,
   useChangeTeamInformationMutation,
   useLazyGetTeamInformationQuery,
-  useLazyGetTeamMembersQuery
+  useLazyGetTeamMembersQuery,
+  useLazyGetallprofileQuery,
+  useLazyGetstudentQuery,
+  useLazyGettutorQuery,
+  useLazyGetDocumentsQuery,
+  useLazyGetCalendarQuery
 } = userApi

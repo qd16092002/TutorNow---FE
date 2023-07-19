@@ -3,14 +3,18 @@ import classNames from 'classnames/bind'
 import styles from './ListDocuments.module.sass'
 import { DocumentsBox, IconUserSearch } from '@src/assets/svgs'
 import { Table } from 'antd'
-import { listDocuments } from '@src/app-configs'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useLazyGetDocumentsQuery } from '../../userService'
 
 const cx = classNames.bind(styles)
 
 function ListDocuments() {
   const [searchedText, setSearchedText] = useState('')
+  const [getDocuments, { data: documentsif }] = useLazyGetDocumentsQuery({})
+  useEffect(() => {
+    getDocuments({}, false)
+  }, [getDocuments])
   return (
     <div className={cx('wallpaper')}>
       <div className={cx('header')}>
@@ -70,9 +74,9 @@ function ListDocuments() {
               }
             },
             {
-              title: 'Tên file',
-              dataIndex: 'namefile',
-              key: 'namefile'
+              title: 'Môn',
+              dataIndex: 'subject',
+              key: 'subject'
             },
             {
               title: 'Khối',
@@ -101,7 +105,7 @@ function ListDocuments() {
               }
             }
           ]}
-          dataSource={listDocuments}
+          dataSource={documentsif}
         ></Table>
       </div>
     </div>
