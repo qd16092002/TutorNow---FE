@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   user: {},
-  team: {}
+  calendar: {},
+  documents: {}
 }
 
 export const userSlice = createSlice({
@@ -15,12 +16,15 @@ export const userSlice = createSlice({
     setPassWord: (state, action) => {
       state.user = action.payload
     },
-    setchageTeam: (state, action) => {
-      state.team = action.payload
+    setCalendar: (state, action) => {
+      state.calendar = action.payload
+    },
+    setDocuments: (state, action) => {
+      state.documents = action.payload
     }
   }
 })
 
-export const { increment, decrement, incrementByAmount } = userSlice.actions
+export const { increment, decrement, setCalendar, setDocuments } = userSlice.actions
 
 export default userSlice.reducer
