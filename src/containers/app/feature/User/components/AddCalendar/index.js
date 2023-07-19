@@ -1,27 +1,43 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import classNames from 'classnames/bind'
 import React, { useRef } from 'react'
 import styles from './AddCalendar.module.sass'
 import { IconCloseAppModal } from '@src/assets/svgs'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
+import { useCreatCalendarMutation, useLazyGetCalendarQuery } from '../../userService'
+import { useDispatch } from 'react-redux'
+import { setCalendar } from '../../userSlice'
 
 const cx = classNames.bind(styles)
-function AddCalendar() {
-  const {
-    register,
-    handleSubmit
-    // formState: { errors }
-  } = useForm()
+function AddCalendar({ onClose }) {
+  const { register, handleSubmit } = useForm()
   const formInput = useRef()
+  const [creatCalendar, { isLoading: isUpdating }] = useCreatCalendarMutation()
+  const [getCalendar] = useLazyGetCalendarQuery({})
+  const dispatch = useDispatch()
 
-  const onSubmit = async () => {
-    toast.success('Update information successfully!')
+  const onSubmit = async (data, e) => {
+    const createcalendar = await creatCalendar(data)
+    e.preventDefault()
+
+    if (!createcalendar?.error) {
+      toast.success('Update Calendar successfully!')
+      const response = await getCalendar({}, false)
+      onClose()
+      if (!response?.error) {
+        console.log('response::  ', response)
+        dispatch(setCalendar(response.data[0]))
+      }
+    } else {
+      toast.error('Something went wrong, please try again')
+    }
   }
   return (
     <div className={cx('form-wallpaper')}>
       <div className={cx('title')}>
         <div>Thêm khóa học</div>
-        <div className={cx('iconclose')}>
+        <div onClick={onClose} className={cx('iconclose')}>
           <IconCloseAppModal />
         </div>
       </div>
@@ -82,6 +98,7 @@ function AddCalendar() {
               formInput.current.click()
             }}
             type='submit'
+            disabled={isUpdating}
             className={cx('button')}
           >
             Thêm

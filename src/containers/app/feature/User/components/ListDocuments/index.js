@@ -60,13 +60,13 @@ function ListDocuments() {
           columns={[
             {
               title: 'STT',
-              dataIndex: 'id',
               key: 'id',
+              render: (text, record, rowIndex) => rowIndex + 1,
               filteredValue: [searchedText],
               onFilter: (value, record) => {
                 return (
                   String(record.id).toLowerCase().includes(value.toLowerCase()) ||
-                  String(record.namefile).toLowerCase().includes(value.toLowerCase()) ||
+                  String(record.subject).toLowerCase().includes(value.toLowerCase()) ||
                   String(record.grade).toLowerCase().includes(value.toLowerCase()) ||
                   String(record.lever).toLowerCase().includes(value.toLowerCase()) ||
                   String(record.note).toLowerCase().includes(value.toLowerCase())
@@ -86,14 +86,22 @@ function ListDocuments() {
             {
               title: 'Mức độ',
               dataIndex: 'lever',
-              key: 'lever'
+              key: 'lever',
+              render: (record) => {
+                return (
+                  <div>
+                    {record == 'hard' && <div> Khó</div>}
+                    {record == 'easy' && <div> Dễ</div>}
+                    {record == 'middle' && <div>Bình Thường</div>}
+                  </div>
+                )
+              }
             },
             {
               title: 'Ghi chú',
               dataIndex: 'note',
               key: 'note',
-              render: (record) => {
-                console.log('record ::', record)
+              render: () => {
                 return (
                   <Link
                     target='_blank'

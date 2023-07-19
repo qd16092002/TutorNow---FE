@@ -219,6 +219,32 @@ export const userApi = createApi({
       query: () => ({
         url: `/calendar`
       })
+    }),
+    creatCalendar: build.mutation({
+      query: (body) => {
+        return {
+          url: '/calendar',
+          method: 'POST',
+          body: body,
+          responseHandler: async (response) => {
+            const responseBody = await response.json()
+            return responseBody
+          }
+        }
+      }
+    }),
+    creatDocuments: build.mutation({
+      query: (body) => {
+        return {
+          url: '/documents',
+          method: 'POST',
+          body: body,
+          responseHandler: async (response) => {
+            const responseBody = await response.json()
+            return responseBody
+          }
+        }
+      }
     })
   })
 })
@@ -245,5 +271,7 @@ export const {
   useLazyGetstudentQuery,
   useLazyGettutorQuery,
   useLazyGetDocumentsQuery,
-  useLazyGetCalendarQuery
+  useLazyGetCalendarQuery,
+  useCreatCalendarMutation,
+  useCreatDocumentsMutation
 } = userApi

@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './TableCalendar.module.sass'
 import { Table } from 'antd'
 import { IconUserSearch } from '@src/assets/svgs'
@@ -12,10 +12,23 @@ const cx = classNames.bind(styles)
 function TableCalendar() {
   const [searchedText, setSearchedText] = useState('')
   const [saveUserId, setSaveUserId] = useState(null)
+  const closeRef = useRef()
   const [getCalendar, { data: calendarif }] = useLazyGetCalendarQuery({})
   useEffect(() => {
     getCalendar({}, false)
+      .then((response) => {
+        // set state
+        console.log('response: ', response)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }, [getCalendar])
+
+  const onClose = () => {
+    console.log('close')
+    closeRef.current.click()
+  }
   return (
     <div className={cx('wall-paper')}>
       <div className={cx('information')}>
@@ -36,8 +49,9 @@ function TableCalendar() {
               backgroundColor: 'white',
               boxShadow: '4px 4px 10px 0px #00000040'
             }}
+            ref={closeRef}
           >
-            <AddCalendar />
+            <AddCalendar onClose={onClose} />
           </AppModal>
           <div className={cx('search-wrapper')}>
             <label htmlFor='search' className={cx('icon')}>
@@ -62,7 +76,7 @@ function TableCalendar() {
             {
               title: 'STT',
               dataIndex: 'id',
-              key: 'id',
+              render: (text, record, rowIndex) => rowIndex + 1,
               filteredValue: [searchedText],
               onFilter: (value, record) => {
                 return (
