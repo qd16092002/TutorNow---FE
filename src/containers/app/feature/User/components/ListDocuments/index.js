@@ -98,15 +98,12 @@ function ListDocuments() {
               }
             },
             {
-              title: 'Ghi chú',
-              dataIndex: 'note',
-              key: 'note',
-              render: () => {
+              title: 'Link tài liệu',
+              dataIndex: 'file',
+              key: 'file',
+              render: (record) => {
                 return (
-                  <Link
-                    target='_blank'
-                    to='https://drive.google.com/file/d/1sT_Iwb8THGHOxUibS1FNV-uGZzl8UVYr/view?usp=sharing'
-                  >
+                  <Link target='_blank' to={record}>
                     <div className={cx('xemchitiet')}>Xem chi tiết</div>
                   </Link>
                 )

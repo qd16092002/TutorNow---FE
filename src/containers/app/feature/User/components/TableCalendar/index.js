@@ -45,7 +45,7 @@ function TableCalendar() {
               triggerBtn={<div className={cx('addnewcalendar')}>Thêm khóa học</div>}
               contentStyle={{
                 width: '720px',
-                height: '300px',
+                height: '340px',
                 left: '60vw',
                 top: '45vh',
                 backgroundColor: 'white',
@@ -111,6 +111,11 @@ function TableCalendar() {
               title: 'Tên gia sư',
               dataIndex: 'nameTutor',
               key: 'nameTutor'
+            },
+            {
+              title: 'Số điện thoại',
+              dataIndex: 'phonenuberstudent',
+              key: 'phonenuberstudent'
             },
             {
               title: 'Ghi chú',
