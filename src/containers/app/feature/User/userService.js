@@ -172,6 +172,13 @@ export const userApi = createApi({
           url: `/users/${id}`
         }
       }
+    }),
+    getCalendarbyID: build.mutation({
+      query: (id) => {
+        return {
+          url: `/calendar/${id}`
+        }
+      }
     })
   })
 })
@@ -195,5 +202,6 @@ export const {
   useLazyGetCalendarQuery,
   useCreatCalendarMutation,
   useCreatDocumentsMutation,
-  useGetProfileByIdMutation
+  useGetProfileByIdMutation,
+  useGetCalendarbyIDMutation
 } = userApi
