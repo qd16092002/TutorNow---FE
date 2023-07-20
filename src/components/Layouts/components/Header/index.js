@@ -16,7 +16,6 @@ function Header() {
   const userInfo = useSelector((state) => state.auth.user)
   console.log('userInfo:: ', userInfo)
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
-  // const handleChangeLang
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const handleLogout = () => {

@@ -21,7 +21,7 @@ function AddDocuments({ onClose }) {
     e.preventDefault()
 
     if (!creatdocuments?.error) {
-      toast.success('Update Documents successfully!')
+      toast.success('Cập nhật tài liệu thành công')
       const response = await getDocuments({}, false)
       onClose()
       if (!response?.error) {
@@ -29,7 +29,7 @@ function AddDocuments({ onClose }) {
         dispatch(setDocuments(response.data[0]))
       }
     } else {
-      toast.error('Something went wrong, please try again')
+      toast.error('Vui lòng điền đầy đủ thông tin')
     }
   }
 
@@ -57,14 +57,6 @@ function AddDocuments({ onClose }) {
           >
             Hoàn tất
           </button>
-          {/* <button
-              onClick={() => {
-                formInput.current.click()
-              }}
-              type='submit'
-            >
-              Hoàn tất
-            </button> */}
         </div>
         <div className={cx('content')}>
           <div>

@@ -22,14 +22,14 @@ function AddCalendar({ onClose }) {
     e.preventDefault()
 
     if (!createcalendar?.error) {
-      toast.success('Update Calendar successfully!')
+      toast.success('Cập nhật lớp học thành công')
       const response = await getCalendar({}, false)
       onClose()
       if (!response?.error) {
         dispatch(setCalendar(response.data[0]))
       }
     } else {
-      toast.error('Something went wrong, please try again')
+      toast.error('Vui lòng điền đầy đủ thông tin')
     }
   }
   return (
@@ -92,6 +92,17 @@ function AddCalendar({ onClose }) {
               placeholder='Nhập...'
             ></input>
           </div>
+          <div className={cx('block')}>
+            <div className={cx('nameinput')}>Số điện thoại</div>
+            <input type='text' {...register('phonenuberstudent')} className={cx('input')} placeholder='Nhập...'></input>
+          </div>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-end'
+          }}
+        >
           <button
             onClick={() => {
               formInput.current.click()
