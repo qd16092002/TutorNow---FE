@@ -26,7 +26,6 @@ function AddCalendar({ onClose }) {
       const response = await getCalendar({}, false)
       onClose()
       if (!response?.error) {
-        console.log('response::  ', response)
         dispatch(setCalendar(response.data[0]))
       }
     } else {

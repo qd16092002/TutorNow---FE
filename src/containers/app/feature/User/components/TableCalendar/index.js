@@ -26,7 +26,6 @@ function TableCalendar() {
   }, [getCalendar])
 
   const onClose = () => {
-    console.log('close')
     closeRef.current.click()
   }
   return (
@@ -113,8 +112,7 @@ function TableCalendar() {
               title: 'Ghi chú',
               dataIndex: 'note',
               key: 'note',
-              render: (record) => {
-                console.log('record ::', record)
+              render: () => {
                 return (
                   <AppModal
                     triggerBtn={<div className={cx('xemchitiet')}>Xem chi tiết</div>}
@@ -126,19 +124,18 @@ function TableCalendar() {
                       backgroundColor: 'white',
                       boxShadow: '4px 4px 10px 0px #00000040'
                     }}
-                    onClick={() => {
-                      setSaveUserId(record?._id)
-                    }}
                   >
-                    <ClassDetails />
+                    {saveUserId && <ClassDetails id={saveUserId} />}
                   </AppModal>
                 )
               }
             }
           ]}
           dataSource={calendarif}
+          onRow={(record) => ({
+            onClick: () => setSaveUserId(record?._id)
+          })}
         ></Table>
-        {saveUserId && <ClassDetails />}
       </div>
     </div>
   )
