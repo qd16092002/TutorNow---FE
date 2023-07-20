@@ -56,18 +56,23 @@ function Infomation() {
               >
                 Cài đặt & Chỉnh sửa hồ sơ
               </div>
-              <div
-                className={cx('header__title', activeTab.code === TABS.PROFILESUDENT.code ? 'active' : 'inactive')}
-                onClick={() => setActiveTab(TABS.PROFILESUDENT)}
-              >
-                Thông tin học sinh
-              </div>
-              <div
-                className={cx('header__title', activeTab.code === TABS.PROFILETUTOR.code ? 'active' : 'inactive')}
-                onClick={() => setActiveTab(TABS.PROFILETUTOR)}
-              >
-                Thông tin gia sư
-              </div>
+              {userInfo?.role === 'ADMIN' && (
+                <div
+                  className={cx('header__title', activeTab.code === TABS.PROFILESUDENT.code ? 'active' : 'inactive')}
+                  onClick={() => setActiveTab(TABS.PROFILESUDENT)}
+                >
+                  Thông tin học sinh
+                </div>
+              )}
+
+              {userInfo?.role === 'ADMIN' && (
+                <div
+                  className={cx('header__title', activeTab.code === TABS.PROFILETUTOR.code ? 'active' : 'inactive')}
+                  onClick={() => setActiveTab(TABS.PROFILETUTOR)}
+                >
+                  Thông tin gia sư
+                </div>
+              )}
             </div>
           </Col>
         </Row>
@@ -75,9 +80,6 @@ function Infomation() {
         {activeTab.code === TABS.PROFILE.code && <Profile />}
         {activeTab.code === TABS.PROFILESUDENT.code && <ProfileStudent />}
         {activeTab.code === TABS.PROFILETUTOR.code && <ProfileTutor />}
-        {/* {activeTab.code === TABS.PROFILE.code && <ProfileStudent />}
-        {activeTab.code === TABS.EDITPROFILE.code && <EditProfile />}
-        {activeTab.code === TABS.PROFILESUDENT.code && <Profile />} */}
       </div>
     </div>
   )

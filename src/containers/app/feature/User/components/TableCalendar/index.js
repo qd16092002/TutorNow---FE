@@ -7,9 +7,11 @@ import AppModal from '@src/components/AppModal/AppModal'
 import ClassDetails from '../ClassDetails'
 import AddCalendar from '../AddCalendar'
 import { useLazyGetCalendarQuery } from '../../userService'
+import { useSelector } from 'react-redux'
 
 const cx = classNames.bind(styles)
 function TableCalendar() {
+  const userInfo = useSelector((state) => state.auth.user)
   const [searchedText, setSearchedText] = useState('')
   const [saveUserId, setSaveUserId] = useState(null)
   const closeRef = useRef()
@@ -31,44 +33,46 @@ function TableCalendar() {
   return (
     <div className={cx('wall-paper')}>
       <div className={cx('information')}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            width: '100%'
-          }}
-        >
-          <AppModal
-            triggerBtn={<div className={cx('addnewcalendar')}>Thêm khóa học</div>}
-            contentStyle={{
-              width: '720px',
-              height: '300px',
-              left: '60vw',
-              top: '45vh',
-              backgroundColor: 'white',
-              boxShadow: '4px 4px 10px 0px #00000040'
+        {userInfo?.role === 'ADMIN' && (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              width: '100%'
             }}
-            ref={closeRef}
           >
-            <AddCalendar onClose={onClose} />
-          </AppModal>
-          <div className={cx('search-wrapper')}>
-            <label htmlFor='search' className={cx('icon')}>
-              <IconUserSearch />
-            </label>
-            <input
-              className={cx('search')}
-              placeholder='Tìm kiếm thông tin giảng viên, học sinh...  '
-              // eslint-disable-next-line react/no-unknown-property
-              onSearch={(value) => {
-                setSearchedText(value)
+            <AppModal
+              triggerBtn={<div className={cx('addnewcalendar')}>Thêm khóa học</div>}
+              contentStyle={{
+                width: '720px',
+                height: '300px',
+                left: '60vw',
+                top: '45vh',
+                backgroundColor: 'white',
+                boxShadow: '4px 4px 10px 0px #00000040'
               }}
-              onChange={(e) => {
-                setSearchedText(e.target.value)
-              }}
-            />
+              ref={closeRef}
+            >
+              <AddCalendar onClose={onClose} />
+            </AppModal>
+            <div className={cx('search-wrapper')}>
+              <label htmlFor='search' className={cx('icon')}>
+                <IconUserSearch />
+              </label>
+              <input
+                className={cx('search')}
+                placeholder='Tìm kiếm thông tin giảng viên, học sinh...  '
+                // eslint-disable-next-line react/no-unknown-property
+                onSearch={(value) => {
+                  setSearchedText(value)
+                }}
+                onChange={(e) => {
+                  setSearchedText(e.target.value)
+                }}
+              />
+            </div>
           </div>
-        </div>
+        )}
         <Table
           className={cx('table')}
           columns={[
