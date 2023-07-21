@@ -47,7 +47,7 @@ function EditProfile() {
               className={cx('inputsettings')}
               placeholder='Thêm tên người dùng'
               type='text'
-              {...register('first_name')}
+              {...register('fullName')}
               defaultValue={userInfo?.fullName}
             ></input>
           </div>
@@ -77,7 +77,7 @@ function EditProfile() {
               className={cx('inputsettings')}
               placeholder='Thêm địa chỉ'
               type='text'
-              {...register('country')}
+              {...register('address')}
               defaultValue={userInfo?.address}
             ></input>
           </div>
