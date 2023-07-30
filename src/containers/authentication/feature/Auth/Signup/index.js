@@ -150,7 +150,7 @@ function Signup() {
                 <Col xs={24}>
                   <div className={cx('form-field')}>
                     <label htmlFor='role'>Role</label>
-                    <select {...register('subject')} className={cx('role')} id='role'>
+                    <select {...register('role')} className={cx('role')} id='role'>
                       <option className={cx('option')} value='TUTOR'>
                         TUTOR
                       </option>
