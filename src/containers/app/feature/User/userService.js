@@ -183,7 +183,16 @@ export const userApi = createApi({
     deleteDocumentsbyId: build.mutation({
       query: (id) => {
         return {
-          url: `/documents/${id}`
+          url: `/documents/${id}`,
+          method: 'DELETE'
+        }
+      }
+    }),
+    deleteCalendarsbyId: build.mutation({
+      query: (id) => {
+        return {
+          url: `/calendar/${id}`,
+          method: 'DELETE'
         }
       }
     })
@@ -211,5 +220,6 @@ export const {
   useCreatDocumentsMutation,
   useGetProfileByIdMutation,
   useGetCalendarbyIDMutation,
-  useDeleteDocumentsbyIdMutation
+  useDeleteDocumentsbyIdMutation,
+  useDeleteCalendarsbyIdMutation
 } = userApi

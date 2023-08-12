@@ -164,6 +164,11 @@ export const leverDocuments = [
     HARD: 'Khó'
   }
 ]
+export const nameStudent = [
+  { value: 'Nguyễn Văn F', label: 'Nguyễn Văn F' },
+  { value: 'Nguyễn Văn G', label: 'Nguyễn Văn G' },
+  { value: 'Trần Quang B', label: 'Trần Quang B' }
+]
 export const listDocuments = [
   {
     key: '1',
