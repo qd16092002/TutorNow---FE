@@ -5,20 +5,38 @@ import { DocumentsBox, IconUserSearch } from '@src/assets/svgs'
 import { Table } from 'antd'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useLazyGetDocumentsQuery } from '../../userService'
-import { useSelector } from 'react-redux'
+import { useDeleteDocumentsbyIdMutation, useLazyGetDocumentsQuery } from '../../userService'
+import { useDispatch, useSelector } from 'react-redux'
+import { setDocuments } from '../../userSlice'
+import { toast } from 'react-hot-toast'
 
 const cx = classNames.bind(styles)
 
 function ListDocuments() {
   const [searchedText, setSearchedText] = useState('')
   const [getDocuments, { data: documentsif }] = useLazyGetDocumentsQuery({})
+  const [deleteDocument] = useDeleteDocumentsbyIdMutation()
   useEffect(() => {
     getDocuments({}, false)
   }, [getDocuments])
   const userInfo = useSelector((state) => state.auth.user)
   const [saveDocumentsId, setSaveDocumentsId] = useState(null)
   console.log(saveDocumentsId)
+  const dispatch = useDispatch()
+
+  const handleDelete = async (id) => {
+    await deleteDocument(id)
+
+    if (!deleteDocument?.error) {
+      toast.success('Xóa lớp thành công')
+      const response = await getDocuments({}, false)
+      if (!response?.error) {
+        dispatch(setDocuments(response.data[0]))
+      }
+    } else {
+      toast.error('Xảy ra lỗi vui lòng thử lại sau!')
+    }
+  }
 
   return (
     <div className={cx('wallpaper')}>
@@ -112,6 +130,16 @@ function ListDocuments() {
                     <Link target='_blank' to={record}>
                       <div className={cx('xemchitiet')}>Xem chi tiết</div>
                     </Link>
+                  )
+                }
+              },
+              {
+                title: 'Xóa tài liệu',
+                render: (record) => {
+                  return (
+                    <button className={cx('delete')} onClick={() => handleDelete(record?._id)}>
+                      Xóa
+                    </button>
                   )
                 }
               }

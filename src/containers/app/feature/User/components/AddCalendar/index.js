@@ -1,21 +1,37 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import classNames from 'classnames/bind'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './AddCalendar.module.sass'
 import { IconCloseAppModal } from '@src/assets/svgs'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
-import { useCreatCalendarMutation, useLazyGetCalendarQuery } from '../../userService'
+import {
+  useCreatCalendarMutation,
+  useLazyGetCalendarQuery,
+  useLazyGetstudentQuery,
+  useLazyGettutorQuery
+} from '../../userService'
 import { useDispatch } from 'react-redux'
 import { setCalendar } from '../../userSlice'
-
 const cx = classNames.bind(styles)
+
+// const datax = ['a', 'b', 'c', 'd']
+
 function AddCalendar({ onClose }) {
   const { register, handleSubmit } = useForm()
   const formInput = useRef()
   const [creatCalendar, { isLoading: isUpdating }] = useCreatCalendarMutation()
   const [getCalendar] = useLazyGetCalendarQuery({})
   const dispatch = useDispatch()
+  const [getstudent, { data: studentif }] = useLazyGetstudentQuery({})
+  useEffect(() => {
+    getstudent({}, false)
+  }, [getstudent])
+
+  const [gettutor, { data: tutorif }] = useLazyGettutorQuery({})
+  useEffect(() => {
+    gettutor({}, false)
+  }, [gettutor])
 
   const onSubmit = async (data, e) => {
     const createcalendar = await creatCalendar(data)
@@ -32,6 +48,7 @@ function AddCalendar({ onClose }) {
       toast.error('Vui lòng điền đầy đủ thông tin')
     }
   }
+
   return (
     <div className={cx('form-wallpaper')}>
       <div className={cx('title')}>
@@ -44,11 +61,31 @@ function AddCalendar({ onClose }) {
         <div className={cx('row')}>
           <div className={cx('block')}>
             <div className={cx('nameinput')}>Tên học sinh</div>
-            <input type='text' {...register('nameStudent')} className={cx('input')} placeholder='Nhập...'></input>
+            {/* <input type='text' {...register('nameStudent')} className={cx('input')} placeholder='Nhập...'></input> */}
+            <select {...register('nameStudent')} className={cx('input')} placeholder='Chọn'>
+              {studentif &&
+                studentif?.map((e) => {
+                  return (
+                    <option key={e} value={e?.fullName}>
+                      {e?.fullName}
+                    </option>
+                  )
+                })}
+            </select>
           </div>
           <div className={cx('block')}>
             <div className={cx('nameinput')}>Tên gia sư</div>
-            <input type='text' {...register('nameTutor')} className={cx('input')} placeholder='Nhập...'></input>
+            {/* <input type='text' {...register('nameTutor')} className={cx('input')} placeholder='Nhập...'></input> */}
+            <select {...register('nameTutor')} className={cx('input')} placeholder='Chọn'>
+              {tutorif &&
+                tutorif?.map((e) => {
+                  return (
+                    <option key={e} value={e?.fullName}>
+                      {e?.fullName}
+                    </option>
+                  )
+                })}
+            </select>
           </div>
           <div className={cx('block')}>
             <div className={cx('nameinput')}>Mã số lớp</div>
