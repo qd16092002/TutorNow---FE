@@ -53,7 +53,7 @@ function ProfileTutor() {
               key: 'fullName',
               filteredValue: [searchedText],
               onFilter: (value, record) => {
-                return String(record.nameStudent).toLowerCase().includes(value.toLowerCase())
+                return String(record.fullName).toLowerCase().includes(value.toLowerCase())
               }
             }
           ]}
